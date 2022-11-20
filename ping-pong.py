@@ -18,6 +18,14 @@ class GameSprite(sprite.Sprite):
     def reset(self):
         w.blit(self.image, (self.rect.x,self.rect.y))
 
+class Player(GameSprite):
+    def update(self):
+        keys = key.get_pressed()
+        if keys[K_a] and self.rect.x>0:
+            self.rect.x -= self.speed
+        if keys[K_d] and self.rect.x<630:
+            self.rect.x += self.speed
+        
 game = True
 clock = time.Clock()
 FPS = 60
