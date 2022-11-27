@@ -45,6 +45,9 @@ left_won = font1.render('Левый победил!', True, (0,0,0))
 game = True
 clock = time.Clock()
 FPS = 60
+finish = False
+speed_x = 7
+speed_y = 7
 
 while game:
     for e in event.get():
