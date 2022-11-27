@@ -50,10 +50,24 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-    w.fill(background)
-    player1.reset()
-    player1.update()
-    player2.reset()
-    player2.update1()
-    display.update()        
-    clock.tick(FPS)
+    if finish != True:
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+        if ball.rect.y > win_height - 58 or ball.rect.y < 0:
+            speed_y *= -1
+        if sprite.collide_rect(player1, ball) or sprite.collide_rect(player2, ball):
+            speed_x *= -1
+        if ball.rect.x < 0:
+            finish = True
+            w.blit(right_won, (350,350))
+        if ball.rect.x > 840:
+            finish = True
+            w.blit(left_won, (350,350))
+        w.fill(background)
+        player1.reset()
+        player1.update()
+        player2.reset()
+        player2.update1()
+        ball.reset()
+        display.update()        
+        clock.tick(FPS)
