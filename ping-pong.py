@@ -4,7 +4,6 @@ win_width = 900
 win_height = 700
 w = display.set_mode((win_width, win_height))
 background = (255,255,255)
-w.fill(background)
 display.set_caption('Пинг-понг.')
 
 class GameSprite(sprite.Sprite):
@@ -36,7 +35,7 @@ class Player(GameSprite):
 
 player1 = Player("wall.png", 50, 0, 26, 200, 10)
 player2 = Player("wall.png", 850, 0, 26, 200, 10)
-#ball = GameSprite
+ball = GameSprite('ball.png', 350, 450, 60, 60, 10)
 
         
 game = True
@@ -47,6 +46,7 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+    w.fill(background)
     player1.reset()
     player1.update()
     player2.reset()
