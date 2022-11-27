@@ -37,6 +37,10 @@ player1 = Player("wall.png", 50, 0, 26, 200, 10)
 player2 = Player("wall.png", 850, 0, 26, 200, 10)
 ball = GameSprite('ball.png', 350, 450, 60, 60, 10)
 
+font.init()
+font1 = font.Font(None,36)
+right_won = font1.render('Правый победил!', True, (0,0,0))
+left_won = font1.render('Левый победил!', True, (0,0,0))
         
 game = True
 clock = time.Clock()
